@@ -5,7 +5,7 @@
 SAVE_FILE = u"database"
 
 # How long the website is queried in seconds before the connection times out
-REQUEST_TIMEOUT = 10
+REQUEST_TIMEOUT = 30
 
 if False:
 	# I have saved my sensitive data in environment variables
@@ -15,9 +15,9 @@ if False:
 	GMAIL_PWD = os.environ.get('GMAIL_PWD')
 	RECIPIENT = os.environ.get('VAHTI_RECIPIENT')
 else:
-	GMAIL_USER = "mikko.viitamaki@gmail.com"
-	GMAIL_PWD = "Relander"
-	RECIPIENT = "mikko.viitamaki+vahti@gmail.com"
+	GMAIL_USER = "test@gmail.com"
+	GMAIL_PWD = "xxxzzzzz"
+	RECIPIENT = "to"
 
 MAIL_SUBJECT = u"Vahti [{}] - New items found!"
 

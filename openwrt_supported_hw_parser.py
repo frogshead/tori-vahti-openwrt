@@ -3,6 +3,7 @@ import os
 from bs4 import BeautifulSoup
 import requests
 import vahti
+import feedgen
 from parsers import tori
 
 response = requests.get("https://wiki.openwrt.org/toh/start")

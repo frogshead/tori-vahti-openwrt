@@ -27,6 +27,7 @@ class Vahti:
 				for key in self.parser.mail_urls.keys():
 					f.writelines("{0}\n".format(self.parser.mail_urls[key]))
 			#self.mail(subject, msg)
+			return self.parser.mail_urls
 
 		else:
 			print("[vahti.py] No new items found")
