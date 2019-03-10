@@ -8,7 +8,7 @@ from jinja2 import Template
 
 from config import SAVE_FILE, REQUEST_TIMEOUT, MAIL_SUBJECT, MAIL_TEMPLATE
 
-class Parser():
+class ToriParser():
 	def __init__(self):
 		self.mail_data = {}
 		self.mail_urls = {}

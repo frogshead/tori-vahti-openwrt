@@ -3,7 +3,7 @@
 from optparse import OptionParser
 import smtplib
 
-from parsers import *
+from parsers import tori
 from config import SAVE_FILE, RECIPIENT, GMAIL_USER, GMAIL_PWD, RECIPIENT
 
 class Vahti:
@@ -16,39 +16,22 @@ class Vahti:
 		self.optparser.add_option("-e", "--email", dest="email", help="Recipient's e-mail address")
 		(options, args) = self.optparser.parse_args()
 
-		if options.query:
-			self.queries = options.query.split(",")
-		else:
-			self.optparser.error('Please specify a query string. See --help')
-
-		if options.parser:
-			parser_list = {
-				"tori" : tori.ToriParser,
-				"posti": posti.PostiParser
-			}
-			self.parser = parser_list[options.parser]()
-		else:
-			self.optparser.error('Please specify a parser. See --help')
-
-		if options.email:
-			self.recipient = options.email
-		else:
-			self.recipient = RECIPIENT
-
 	def main(self):
 		diff = []
-		for query in self.queries:
-			diff = self.parser.run(query)
+		diff = self.parser.run(self.queries)
 
 		if diff:
-			print("[vahti.py] New items found! Sending mail...")
-			subject, msg = self.parser.create_mail()
-			self.mail(subject, msg)
+			print("[vahti.py] New items found! Write to file...")
+			#subject, msg = self.parser.create_mail()
+			with open("tori_openwrt.txt", "a",) as f:
+				for key in self.parser.mail_urls.keys():
+					f.writelines("{0}\n".format(self.parser.mail_urls[key]))
+			#self.mail(subject, msg)
 
 		else:
 			print("[vahti.py] No new items found")
 
-	def clear_db(self, option, opt, value, parser):
+	def clear_db(self):
 		import sys
 		import shelve
 
@@ -58,7 +41,7 @@ class Vahti:
 
 		print("Database cleared.")
 
-		sys.exit()
+		#sys.exit()
 
 	def mail(self, subject, msg):
 		"""

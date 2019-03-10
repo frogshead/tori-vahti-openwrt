@@ -2,10 +2,10 @@
 
 from bs4 import BeautifulSoup
 
-from .parser import Parser
+from vahti import Parser
 from config import REQUEST_TIMEOUT
 
-class PostiParser(Parser):
+class PostiParser(ToriParser):
 	"""
 		A Parser for Posti.fi seuranta
 	"""

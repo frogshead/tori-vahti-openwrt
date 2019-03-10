@@ -5,9 +5,9 @@
 SAVE_FILE = u"database"
 
 # How long the website is queried in seconds before the connection times out
-REQUEST_TIMEOUT = 3
+REQUEST_TIMEOUT = 10
 
-if True:
+if False:
 	# I have saved my sensitive data in environment variables
 	# change the conditional to False and modify the details below else
 	import os
@@ -15,9 +15,9 @@ if True:
 	GMAIL_PWD = os.environ.get('GMAIL_PWD')
 	RECIPIENT = os.environ.get('VAHTI_RECIPIENT')
 else:
-	GMAIL_USER = "sender@gmail.com"
-	GMAIL_PWD = "hunter2"
-	RECIPIENT = "my.own.email@work.com"
+	GMAIL_USER = "mikko.viitamaki@gmail.com"
+	GMAIL_PWD = "Relander"
+	RECIPIENT = "mikko.viitamaki+vahti@gmail.com"
 
 MAIL_SUBJECT = u"Vahti [{}] - New items found!"
 

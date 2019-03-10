@@ -3,9 +3,9 @@
 from bs4 import BeautifulSoup
 from urllib.parse import quote_plus
 
-from .parser import Parser
+from parsers.parser import ToriParser
 
-class ToriParser(Parser):
+class ToriParser(ToriParser):
 	"""
 		A Parser for Tori.fi queries
 	"""
@@ -20,17 +20,18 @@ class ToriParser(Parser):
 		"""
 			Parses the Tori.fi specific html
 		"""
-		soup = BeautifulSoup(html_doc.read())
+		soup = BeautifulSoup(html_doc.read(), features='html.parser')
 		
-		temp = soup.findAll("div", attrs={"class": "desc"})
+#		temp = soup.findAll("div", attrs={"class": "desc"})
+		temp = soup.select(".item_row")
 
 		titles = {} # title as key, url as value
 
 		for item in temp:
-			tag = item.find("a")
-			name = tag.text
-			titles[name] = tag['href']
-
+			
+			if item != None:
+				name = "New Item Found"
+				titles[name] = item['href']
 		return titles
 
 	def run(self, query):

@@ -7,3 +7,8 @@ venv
 *.bak
 *.dat
 *.dir
+*.html
+start
+tori_openwrt.txt
+database
+
