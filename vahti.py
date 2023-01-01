@@ -29,8 +29,8 @@ class Vahti:
 			#self.mail(subject, msg)
 			return self.parser.mail_urls
 
-		else:
-			print("[vahti.py] No new items found")
+		# else:
+		# 	print("[vahti.py] No new items found")
 
 	def clear_db(self):
 		import sys

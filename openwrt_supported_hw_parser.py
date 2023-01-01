@@ -29,7 +29,7 @@ if response.status_code == 200:
 
  #version, , , 
     for brand, model,version,supported_current_rel,device_page in zipped:
-        if supported_current_rel.text == '18.06.1':
+        if str(supported_current_rel.text).startswith("19.07"):
             v.queries = '{0} {1}'.format(brand.text, model.text)
             print(v.queries)
             v.parser = tori.ToriParser()

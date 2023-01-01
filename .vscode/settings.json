@@ -1,4 +1,4 @@
 {
     "python.linting.pylintEnabled": false,
-    "python.pythonPath": "venv/bin/python"
+    "python.pythonPath": "/Users/mikko/.local/share/virtualenvs/tori-vahti-openwrt-BO-N0JvV/bin/python"
 }

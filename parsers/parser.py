@@ -53,8 +53,8 @@ class ToriParser():
 
 		if len(diff) > 0:	
 			local_storage[query] += diff 	# save the diff to stash
-		else:
-			print ("[parser.py] No new items found")
+		# else:
+		# 	print ("[parser.py] No new items found")
 
 		local_storage.close()
 

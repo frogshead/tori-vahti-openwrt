@@ -22,16 +22,17 @@ class ToriParser(ToriParser):
 		"""
 		soup = BeautifulSoup(html_doc.read(), features='html.parser')
 		
-#		temp = soup.findAll("div", attrs={"class": "desc"})
-		temp = soup.select(".item_row")
+		#temp = soup.findAll("div", attrs={"class": "list_mode_thumb"})
+		temp = soup.findAll("a", attrs={"class": "item_row_flex"})
 
-		titles = {} # title as key, url as value
+		titles = [] # title as key, url as value
 
 		for item in temp:
 			
 			if item != None:
-				name = "New Item Found"
-				titles[name] = item['href']
+				#name = "New Item Found"
+				titles.append(item['href'])
+				#titles[name] = item['href']
 		return titles
 
 	def run(self, query):
